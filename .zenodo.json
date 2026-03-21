@@ -1,0 +1,37 @@
+{
+  "title": "Repository of databases on human brain connectomics: structural connectivity (DTI, tractography) and functional connectivity (fMRI), including brain network maps and interindividual variability. Data compiled and organized for neuroscience research. ",
+  "description": "Repository of databases on human brain connectomics: structural connectivity (DTI, tractography) and functional connectivity (fMRI), including brain network maps and interindividual variability. Data compiled and organized for neuroscience research. ",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "license": "cc-zero",
+  "creators": [
+    {
+      "name": "de la Serna Tuya, Juan Moisés",
+      "affiliation": "Universidad Internacional de La Rioja (UNIR)",
+      "orcid": "0000-0002-8401-8018"
+    }
+  ],
+  "keywords": [
+    "cc0",
+    "dataset",
+    "open-data",
+    "zenodo",
+    "open-data",
+    "dataset",
+    "research"
+  ],
+  "language": "eng",
+  "communities": [
+    {
+      "identifier": "zenodo"
+    }
+  ],
+  "grants": [],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/juanmoisesd/human-brain-connectomics-structural-and-functional-connectivity-database",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
