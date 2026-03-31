@@ -1,130 +1,28 @@
 {
-  "name": "Repository of databases on human brain connectomics: structural connectivity (DTI, tractography) and functional connectivity (fMRI), including brain network maps and interindividual variability. Data compiled and organized for neuroscience research. ",
-  "short_name": "human-brain-connectomics-struc",
-  "description": "Repository of databases on human brain connectomics: structural connectivity (DTI, tractography) and functional connectivity (fMRI), including brain network maps and interindividual variability. Data compiled and organized for neuroscience research. ",
-  "version": "1.0.0",
-  "author": "Juan Moisés de la Serna Tuya",
-  "orcid": "https://orcid.org/0000-0002-8401-8018",
-  "license": "CC0-1.0",
-  "repository": "https://github.com/juanmoisesd/human-brain-connectomics-structural-and-functional-connectivity-database",
-  "homepage": "https://juanmoisesd.github.io/human-brain-connectomics-structural-and-functional-connectivity-database/",
-  "files": [
+  "name": "Human Brain Connectomics Database",
+  "short_name": "Brain Connectomics",
+  "description": "Repository of databases on human brain structural and functional connectivity (DTI, fMRI, brain networks).",
+  "start_url": "/human-brain-connectomics-structural-and-functional-connectivity-database/",
+  "scope": "/human-brain-connectomics-structural-and-functional-connectivity-database/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#58a6ff",
+  "lang": "en",
+  "icons": [
     {
-      "path": "README.md",
-      "type": "documentation",
-      "description": "Main documentation"
+      "src": "https://github.com/juanmoisesd.png?size=192",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
-      "path": "CITATION.cff",
-      "type": "citation",
-      "description": "Citation metadata"
-    },
-    {
-      "path": "codemeta.json",
-      "type": "metadata",
-      "description": "Scientific metadata"
-    },
-    {
-      "path": "LICENSE",
-      "type": "legal",
-      "description": "License file"
-    },
-    {
-      "path": "AUTHORS.md",
-      "type": "attribution",
-      "description": "Author list"
-    },
-    {
-      "path": ".zenodo.json",
-      "type": "metadata",
-      "description": "Zenodo upload metadata"
-    },
-    {
-      "path": "ro-crate-metadata.json",
-      "type": "metadata",
-      "description": "RO-Crate FAIR metadata"
-    },
-    {
-      "path": "datapackage.json",
-      "type": "metadata",
-      "description": "Frictionless Data package"
-    },
-    {
-      "path": "PROV.json",
-      "type": "provenance",
-      "description": "W3C PROV provenance"
-    },
-    {
-      "path": "docs/methodology.md",
-      "type": "documentation",
-      "description": "Methodology"
-    },
-    {
-      "path": "docs/validation.md",
-      "type": "documentation",
-      "description": "Validation report"
-    },
-    {
-      "path": "docs/limitations.md",
-      "type": "documentation",
-      "description": "Limitations"
-    },
-    {
-      "path": "docs/reproducibility.md",
-      "type": "documentation",
-      "description": "Reproducibility guide"
-    },
-    {
-      "path": "docs_public/summary.md",
-      "type": "outreach",
-      "description": "Public summary"
-    },
-    {
-      "path": "docs_public/faq.md",
-      "type": "outreach",
-      "description": "FAQ"
-    },
-    {
-      "path": "ETHICS.md",
-      "type": "legal",
-      "description": "Ethics statement"
-    },
-    {
-      "path": "DATA_MANAGEMENT_PLAN.md",
-      "type": "planning",
-      "description": "Data management plan"
-    },
-    {
-      "path": "schema_org.jsonld",
-      "type": "seo",
-      "description": "Schema.org structured data"
-    },
-    {
-      "path": "sitemap.xml",
-      "type": "seo",
-      "description": "Sitemap for indexing"
-    },
-    {
-      "path": "robots.txt",
-      "type": "seo",
-      "description": "Robots crawling rules"
-    },
-    {
-      "path": "index.html",
-      "type": "web",
-      "description": "Microsite homepage"
-    },
-    {
-      "path": "style.css",
-      "type": "web",
-      "description": "Stylesheet"
-    },
-    {
-      "path": "script.js",
-      "type": "web",
-      "description": "JavaScript"
+      "src": "https://github.com/juanmoisesd.png?size=512",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "created": "2026-03-20",
-  "updated": "2026-03-21"
+  "categories": [
+    "health",
+    "science",
+    "neuroscience"
+  ]
 }
