@@ -1,0 +1,29 @@
+# Human Brain Connectomics: Structural and Functional Connectivity Database
+
+> Open database of human brain structural connectivity (DTI/tractography) and functional connectivity (fMRI), including brain network maps and interindividual variability.
+
+## Author
+Juan Moisés de la Serna Tuya (UNIR)
+ORCID: 0000-0002-8401-8018
+Email: jmsernatuya@gmail.com
+
+## Description
+Comprehensive repository of databases on human brain connectomics covering both structural connectivity (DTI, tractography, white matter tracts) and functional connectivity (fMRI, resting-state networks, task-based). Includes brain network maps, graph-theoretic metrics, and analyses of interindividual variability. Data compiled and organized for neuroscience research and clinical applications.
+
+## Data Types
+- Structural connectivity: DTI, tractography, FA maps, MD maps, white matter tracts
+- Functional connectivity: resting-state fMRI, ICA components, seed-based correlation
+- Network metrics: node degree, clustering coefficient, path length, modularity
+- Regions: AAL atlas, Brodmann areas, cortical parcellations
+
+## Dashboard URL
+https://juanmoisesd.github.io/human-brain-connectomics-structural-and-functional-connectivity-database/
+
+## License
+Data: CC BY 4.0 | Code: MIT
+
+## Citation
+Serna Tuya, J.M. (2025). Human Brain Connectomics: Structural and Functional Connectivity Database. GitHub. https://github.com/juanmoisesd/human-brain-connectomics-structural-and-functional-connectivity-database
+
+## Keywords
+brain connectomics, DTI, tractography, fMRI, functional connectivity, structural connectivity, white matter, brain networks, neuroscience, open data
