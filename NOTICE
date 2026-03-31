@@ -1,0 +1,40 @@
+NOTICE — Data Source Attribution
+=================================
+
+Project: Human Brain Connectomics — Structural and Functional Connectivity Database
+Author:  Juan Moisés de la Serna Tuya (UNIR)
+ORCID:   https://orcid.org/0000-0002-8401-8018
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Data Sources
+------------
+This repository compiles publicly available neuroimaging datasets:
+
+1. Human Connectome Project (HCP) — WU-Minn Consortium
+   URL: https://www.humanconnectome.org/
+   License: HCP Open Access Data Use Terms
+
+2. OpenNeuro — BIDS-formatted neuroimaging datasets
+   URL: https://openneuro.org/
+   License: CC0 / CC BY 4.0 (per dataset)
+
+3. NeuroVault — Statistical Brain Maps
+   URL: https://neurovault.org/
+   License: CC0
+
+4. Brainnetome Atlas — Institute of Automation, CAS
+   URL: https://atlas.brainnetome.org/
+   License: Free for research use
+
+Attribution Requirement
+-----------------------
+If you use this repository in your research, please cite:
+
+  Serna Tuya, J. M. (2025). Repository of databases on human brain
+  connectomics: Structural and functional connectivity. Zenodo.
+
+Third-Party Rights
+------------------
+Individual datasets retain their original licenses as specified by
+their respective repositories. Users must comply with the terms of
+the original data providers.
