@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  analysis:
+    build: .
+    volumes:
+      - ./figures:/app/figures
+    environment:
+      - PYTHONUNBUFFERED=1
