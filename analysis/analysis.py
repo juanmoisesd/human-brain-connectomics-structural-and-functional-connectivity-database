@@ -1,68 +1,86 @@
-# analysis.py — Human Brain Connectomics: Structural and Functional Connectivity Database
-# DOI: 10.5281/zenodo.18881110
-# Author: de la Serna Tuya, Juan Moisés · ORCID: 0000-0002-8401-8018
-# License: CC0 1.0
+"""
+analysis.py — Human Brain Connectomics: Structural and Functional Connectivity Database
+DOI: 10.5281/zenodo.19145316
+Author: de la Serna Tuya, Juan Moisés · ORCID: 0000-0002-8401-8018
+License: CC BY 4.0
+"""
 
-import pandas as pd
-import matplotlib.pyplot as plt
+import os
+from typing import Tuple
+
 import matplotlib
-matplotlib.use("Agg")
-import warnings
-warnings.filterwarnings("ignore")
-
-# ── LOAD DATA ─────────────────────────────────────────────────────────────
-# Download dataset from: https://doi.org/10.5281/zenodo.18881110
-# df = pd.read_csv("dataset.csv")
-
-# Example with synthetic data
+import matplotlib.pyplot as plt
 import numpy as np
-np.random.seed(42)
-years = list(range(2000, 2024))
-keywords = []
+import pandas as pd
+import seaborn as sns
 
-df = pd.DataFrame({
-    "year": years,
-    **{k.lower().replace(" ","_")[:15]: np.random.normal(50, 15, len(years))
-       for k in keywords[:4]}
-})
+# Use non-interactive backend for headless environments
+matplotlib.use("Agg")
 
-print(f"Dataset: Human Brain Connectomics: Structural and Functiona")
-print(f"DOI: 10.5281/zenodo.18881110")
-print(f"Shape: {df.shape}")
-print("\nFirst rows:")
-print(df.head())
-print("\nSummary statistics:")
-print(df.describe())
 
-# ── VISUALIZATION ─────────────────────────────────────────────────────────
-fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-fig.suptitle("Human Brain Connectomics: Structural and Functional Connecti", fontsize=11, fontweight="bold")
+def generate_synthetic_data(seed: int = 42) -> pd.DataFrame:
+    """Generates synthetic brain connectivity data for demonstration."""
+    np.random.seed(seed)
+    years = np.arange(2000, 2024)
+    n_years = len(years)
 
-# Plot 1: Temporal trend
-ax1 = axes[0]
-for col in df.columns[1:3]:
-    ax1.plot(df["year"], df[col], marker="o", markersize=3, label=col)
-ax1.set_xlabel("Year")
-ax1.set_ylabel("Value")
-ax1.set_title("Temporal Trends")
-ax1.legend(fontsize=8)
-ax1.grid(alpha=0.3)
+    data = {
+        "year": years,
+        "structural_connectivity": np.random.normal(60, 10, n_years).cumsum() / 10 + 40,
+        "functional_connectivity": np.random.normal(55, 12, n_years).cumsum() / 10 + 45,
+        "network_efficiency": np.random.normal(0.7, 0.05, n_years),
+        "modularity_index": np.random.normal(0.4, 0.03, n_years),
+    }
 
-# Plot 2: Distribution
-ax2 = axes[1]
-df.iloc[:, 1:5].mean().plot(kind="bar", ax=ax2, color=["#1f6feb","#f85149","#3fb950","#e3b341"])
-ax2.set_title("Variable Means")
-ax2.set_xlabel("Variable")
-ax2.set_ylabel("Mean Value")
-ax2.tick_params(axis="x", rotation=30)
-ax2.grid(axis="y", alpha=0.3)
+    return pd.DataFrame(data)
 
-plt.tight_layout()
-plt.savefig("figures/analysis_output.png", dpi=150, bbox_inches="tight")
-print("\nFigure saved: figures/analysis_output.png")
 
-# ── CITATION ──────────────────────────────────────────────────────────────
-print(f"""
-Citation:
-de la Serna Tuya, Juan Moisés (2026). Human Brain Connectomics: Structural and Functional Connectivity Datab. Zenodo. https://doi.org/10.5281/zenodo.18881110
-""")
+def create_visualizations(df: pd.DataFrame, output_path: str = "figures/analysis_output.png") -> None:
+    """Creates and saves visualizations for the connectivity data."""
+    sns.set_theme(style="whitegrid")
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+    # Plot 1: Connectivity Trends
+    ax1 = axes[0]
+    sns.lineplot(data=df, x="year", y="structural_connectivity", ax=ax1, label="Structural", marker="o")
+    sns.lineplot(data=df, x="year", y="functional_connectivity", ax=ax1, label="Functional", marker="s")
+    ax1.set_title("Connectivity Trends (2000-2023)", fontweight="bold")
+    ax1.set_xlabel("Year")
+    ax1.set_ylabel("Normalized Metric")
+    ax1.legend()
+
+    # Plot 2: Efficiency vs Modularity (Scatter with Regression)
+    ax2 = axes[1]
+    sns.regplot(data=df, x="network_efficiency", y="modularity_index", ax=ax2, color="teal")
+    ax2.set_title("Network Efficiency vs Modularity", fontweight="bold")
+    ax2.set_xlabel("Efficiency")
+    ax2.set_ylabel("Modularity")
+
+    plt.tight_layout()
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    plt.savefig(output_path, dpi=300, bbox_inches="tight")
+    print(f"Visualization saved to: {output_path}")
+
+
+def main() -> None:
+    """Main execution function."""
+    print("--- Human Brain Connectomics Analysis ---")
+    print("DOI: 10.5281/zenodo.19145316")
+
+    # Generate or Load data
+    df = generate_synthetic_data()
+    print(f"\nDataset Shape: {df.shape}")
+    print("\nSummary Statistics:")
+    print(df.describe().round(2))
+
+    # Create plots
+    create_visualizations(df)
+
+    print("\nCitation:")
+    print("de la Serna Tuya, Juan Moisés (2026). Human Brain Connectomics: "
+          "Structural and Functional Connectivity Database. Zenodo. "
+          "https://doi.org/10.5281/zenodo.19145316")
+
+
+if __name__ == "__main__":
+    main()

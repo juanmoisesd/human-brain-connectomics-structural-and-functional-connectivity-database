@@ -1,13 +1,13 @@
 {
   "name": "human-brain-connectomics-structural-and-functional-connectivity-database",
-  "title": "Repository of databases on human brain connectomics: structural connectivity (DTI, tractography) and functional connectivity (fMRI), including brain network maps and interindividual variability. Data compiled and organized for neuroscience research. ",
-  "description": "Repository of databases on human brain connectomics: structural connectivity (DTI, tractography) and functional connectivity (fMRI), including brain network maps and interindividual variability. Data compiled and organized for neuroscience research. ",
+  "title": "Human Brain Connectomics: Structural and Functional Connectivity Database",
+  "description": "Open database of human brain structural and functional connectivity metrics compiled for neuroscience research.",
   "version": "1.0.0",
   "licenses": [
     {
-      "name": "CC0-1.0",
-      "title": "CC0 1.0 Universal",
-      "path": "https://creativecommons.org/publicdomain/zero/1.0/"
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0 International",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
     }
   ],
   "contributors": [
@@ -19,10 +19,10 @@
     }
   ],
   "keywords": [
-    "cc0",
-    "dataset",
-    "open-data",
-    "zenodo"
+    "connectomics",
+    "brain-connectivity",
+    "neuroscience",
+    "open-data"
   ],
   "sources": [
     {
@@ -30,5 +30,5 @@
       "path": "https://github.com/juanmoisesd/human-brain-connectomics-structural-and-functional-connectivity-database"
     }
   ],
-  "created": "2026-03-20"
+  "created": "2025-01-01"
 }

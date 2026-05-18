@@ -14,8 +14,9 @@
     {
       "@type": "Person",
       "givenName": "Juan Moisés",
-      "familyName": "Serna Tuya",
-      "email": "jmsernatuya@gmail.com"
+      "familyName": "de la Serna Tuya",
+      "email": "jmsernatuya@gmail.com",
+      "identifier": "https://orcid.org/0000-0002-8401-8018"
     }
   ],
   "keywords": [
@@ -24,9 +25,7 @@
     "structural-mri",
     "functional-mri",
     "neuroscience",
-    "open-data",
-    "HCP",
-    "OpenNeuro"
+    "open-data"
   ],
-  "citation": "https://github.com/juanmoisesd/human-brain-connectomics-structural-and-functional-connectivity-database/blob/main/CITATION.cff"
+  "citation": "https://doi.org/10.5281/zenodo.19145316"
 }

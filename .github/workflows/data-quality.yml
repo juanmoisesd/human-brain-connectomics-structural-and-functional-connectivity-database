@@ -1,4 +1,4 @@
-name: Data Quality & Link Check
+name: Data Quality & Tests
 
 on:
   push:
@@ -6,11 +6,11 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: '0 6 * * 1'  # Weekly on Mondays
+    - cron: '0 6 * * 1'
 
 jobs:
-  validate:
-    name: Validate Data & Documentation
+  test:
+    name: Lint & Test
     runs-on: ubuntu-latest
     
     steps:
@@ -22,60 +22,28 @@ jobs:
         with:
           python-version: '3.11'
       
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install flake8
+
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings.
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+      - name: Run Python tests
+        run: pytest
+
       - name: Check for required files
         run: |
-          echo "Checking required community files..."
-          for file in README.md CITATION.cff .zenodo.json CONTRIBUTING.md; do
+          for file in README.md CITATION.cff .zenodo.json CONTRIBUTING.md Dockerfile; do
             if [ -f "$file" ]; then
               echo "✅ $file found"
             else
               echo "⚠️  $file missing"
+              exit 1
             fi
           done
-      
-      - name: Validate CITATION.cff
-        run: |
-          pip install cffconvert --quiet
-          if [ -f "CITATION.cff" ]; then
-            cffconvert --validate
-            echo "✅ CITATION.cff is valid"
-          else
-            echo "⚠️  CITATION.cff not found"
-          fi
-        continue-on-error: true
-      
-      - name: Validate .zenodo.json
-        run: |
-          if [ -f ".zenodo.json" ]; then
-            python -c "import json; json.load(open('.zenodo.json')); print('✅ .zenodo.json is valid JSON')"
-          else
-            echo "⚠️  .zenodo.json not found"
-          fi
-        continue-on-error: true
-      
-      - name: Check CSV files (if any)
-        run: |
-          find . -name "*.csv" -not -path "./.git/*" | head -20 | while read f; do
-            python -c "
-          import csv, sys
-          try:
-              with open('$f', encoding='utf-8', errors='ignore') as fh:
-                  r = csv.reader(fh)
-                  headers = next(r, None)
-                  rows = sum(1 for _ in r)
-              print(f'✅ {sys.argv[1]}: {rows} rows, {len(headers) if headers else 0} columns')
-          except Exception as e:
-              print(f'⚠️  {sys.argv[1]}: {e}')
-          " "$f"
-          done
-        continue-on-error: true
-      
-      - name: Summary
-        run: |
-          echo ""
-          echo "================================"
-          echo "  Data Quality Check Complete"
-          echo "================================"
-          echo "Repository: ${{ github.repository }}"
-          echo "Branch: ${{ github.ref_name }}"
-          echo "Commit: ${{ github.sha }}"
