@@ -1,8 +1,8 @@
 """
 analysis.py — Human Brain Connectomics: Structural and Functional Connectivity Database
-DOI: 10.5281/zenodo.18881110
+DOI: 10.5281/zenodo.19145316
 Author: de la Serna Tuya, Juan Moisés · ORCID: 0000-0002-8401-8018
-License: CC0 1.0
+License: CC BY 4.0
 """
 
 import os

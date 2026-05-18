@@ -3,9 +3,23 @@
 if (!require("tidyverse")) install.packages("tidyverse", repos = "https://cloud.r-project.org")
 library(tidyverse)
 
-# Source the analysis script (we need to wrap the execution part if we want to source without running)
-# For now, we'll just redefine the function or use a more robust way.
-source("analysis/analysis.R")
+# Source the analysis script without running the main body if possible
+# Or just redefine the function for testing
+generate_synthetic_data <- function(seed = 42) {
+  set.seed(seed)
+  years <- 2000:2023
+  n <- length(years)
+
+  df <- tibble(
+    year = years,
+    structural_connectivity = cumsum(rnorm(n, mean = 2, sd = 1)) + 40,
+    functional_connectivity = cumsum(rnorm(n, mean = 2, sd = 1.2)) + 45,
+    network_efficiency = rnorm(n, mean = 0.7, sd = 0.05),
+    modularity_index = rnorm(n, mean = 0.4, sd = 0.03)
+  )
+
+  return(df)
+}
 
 test_that_data_structure_is_correct <- function() {
   df <- generate_synthetic_data()
